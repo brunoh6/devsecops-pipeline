@@ -11,3 +11,8 @@ def read_item(item_id: int) -> dict:
     if item is None:
         raise HTTPException(status_code=404, detail="Item not found")
     return item
+import subprocess
+@app.get("/ping")
+def ping(host: str) -> dict:
+    result = subprocess.run(f"ping -c 1 {host}", shell=True, capture_output=True, text=True)
+    return {"output": result.stdout}
