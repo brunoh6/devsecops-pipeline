@@ -1,1 +1,2 @@
-PAYMENTS_API_KEY = "q7Zv2XmR9tLbN4kWp8sHc3JdYf6GaE1u"
+import os
+PAYMENTS_API_KEY = os.environ.get("PAYMENTS_API_KEY", "")
